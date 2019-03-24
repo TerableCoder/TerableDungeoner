@@ -2,7 +2,7 @@
 	"files": {
 		"index.js": "8de0b16d1384a45f0ee7b7b450fcd300528ff5a9e7aab8119fdde1597b231b6f",
 		"module.json": "39acdebd64527ce6321fbb94e74f1d091d1d1a66489ede9e3f0c462790f5df70",
-		"README.md": "7beefd9888b4b2d4dcd6c68f9871fb160fadec5bddbf95c8e0a33edf29c17087"
+		"README.md": "3e6746c4daebec6aab9b8b759eea2690018c2572e2711e00dea801804110e4c3"
 	},
 	"defs": {
 		"C_DUNGEON_WORK_ENTER": 1,

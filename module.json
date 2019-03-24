@@ -1,0 +1,9 @@
+{
+    "disableAutoUpdate": false,
+    "name": "TerableDungeoner",
+    "author": " Terablecoder",
+    "homepage": "https://github.com/TerableCoder/TerableDungeoner",
+    "description": "Enter Ace Dungeons",
+    "version": "1",
+    "servers": ["https://raw.githubusercontent.com/TerableCoder/TerableDungeoner/master/"]
+}

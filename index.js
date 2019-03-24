@@ -32,19 +32,19 @@ module.exports = function TerableDungeoner(mod) {
 	
 	command.add(['terad', 'terabled', 'teraace', 'teraad'], {
 		$default(){
+        	command.message(`Now entering ${Baracos ? "Baracos" : "Akasha"} Ace Dungeon.`);
 			if(Baracos) enterBaracosAceDungeon();
 			else enterAkashaAceDungeon();
-        	command.message(`Now entering ${Baracos ? "Baracos" : "Akasha"} Ace Dungeon.`);
 			Baracos = !Baracos;
     	},
 		b(){
-			enterBaracosAceDungeon();
 			command.message(`Now entering Baracos Ace Dungeon.`);
+			enterBaracosAceDungeon();
 			Baracos = false;
 		},
 		a(){
-			enterAkashaAceDungeon();
 			command.message(`Now entering Akasha Ace Dungeon.`);
+			enterAkashaAceDungeon();
 			Baracos = true;
 		}
 	});

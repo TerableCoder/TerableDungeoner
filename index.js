@@ -1,6 +1,20 @@
 module.exports = function TerableDungeoner(mod) {
 	const command = mod.command || mod.require.command;
-	let Baracos = true;
+	let whatDNG = 0;
+	
+	function enterLilithAceDungeon(){
+		mod.toServer('C_DUNGEON_WORK_ENTER', 1, {
+			count: 2,
+			unk1: 13,
+			zone: 3016,
+			random: 0,
+			unk2: 13,
+			unk3: 21,
+			challenge1: 1,
+			unk4: 21,
+			challenge2: 2
+		});
+	}
 	
 	function enterBaracosAceDungeon(){
 		mod.toServer('C_DUNGEON_WORK_ENTER', 1, {
@@ -33,23 +47,29 @@ module.exports = function TerableDungeoner(mod) {
 	command.add(['terad', 'terabled', 'teraace', 'teraad'], {
 		$default(){
         	command.message(`Now entering ${Baracos ? "Baracos" : "Akasha"} Ace Dungeon.`);
-			if(Baracos) enterBaracosAceDungeon();
-			else enterAkashaAceDungeon();
-			Baracos = !Baracos;
+			if(whatDNG % 3 == 0) enterBaracosAceDungeon();
+			if(whatDNG % 3 == 1) enterAkashaAceDungeon();
+			if(whatDNG % 3 == 2) enterLilithAceDungeon();
+			whatDNG++;
     	},
+		l(){
+			command.message(`Now entering Lilith Ace Dungeon.`);
+			enterLilithAceDungeon();
+			whatDNG = 0;
+		},
 		b(){
 			command.message(`Now entering Baracos Ace Dungeon.`);
 			enterBaracosAceDungeon();
-			Baracos = false;
+			whatDNG = 1;
 		},
 		a(){
 			command.message(`Now entering Akasha Ace Dungeon.`);
 			enterAkashaAceDungeon();
-			Baracos = true;
+			whatDNG = 2;
 		}
 	});
 	
 	mod.hook('S_RETURN_TO_LOBBY', 'raw', () => {
-		Baracos = true;
+		whatDNG = 0;
 	});
 };

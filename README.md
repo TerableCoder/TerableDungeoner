@@ -3,7 +3,9 @@ Enter Ace Dungeons
 
 ## Usage
 ### `terad`
-- Switch between entering Baracos and Akasha Ace Dungeons
+- Switch between entering Baracos, Akasha, and Lilith Ace Dungeons
+### `terad l`
+- Enter Lilith Ace Dungeon
 ### `terad b`
 - Enter Baracos Ace Dungeon
 ### `terad a`

@@ -46,7 +46,7 @@ module.exports = function TerableDungeoner(mod) {
 	
 	command.add(['terad', 'terabled', 'teraace', 'teraad'], {
 		$default(){
-        	command.message(`Now entering ${Baracos ? "Baracos" : "Akasha"} Ace Dungeon.`);
+        	command.message(`Now entering ${whatDNG % 3 == 0 ? "Baracos" : whatDNG % 3 == 1 ? "Akasha" : "Lilith"} Ace Dungeon.`);
 			if(whatDNG % 3 == 0) enterBaracosAceDungeon();
 			if(whatDNG % 3 == 1) enterAkashaAceDungeon();
 			if(whatDNG % 3 == 2) enterLilithAceDungeon();

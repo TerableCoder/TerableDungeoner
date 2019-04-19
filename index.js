@@ -73,6 +73,10 @@ module.exports = function TerableDungeoner(mod) {
 			command.message(`Now entering Akasha Ace Dungeon.`);
 			enterAkashaAceDungeon();
 			whatDNG = 2;
+		},
+		dl(){
+			disableLilith = !disableLilith;
+			command.message(`Lilith ${!disableLilith ? "enabled" : "disabled"}.`);
 		}
 	});
 	

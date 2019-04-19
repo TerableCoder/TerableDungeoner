@@ -1,6 +1,7 @@
 module.exports = function TerableDungeoner(mod) {
 	const command = mod.command || mod.require.command;
 	let whatDNG = 0;
+	let disableLilith = true;
 	
 	function enterLilithAceDungeon(){
 		mod.toServer('C_DUNGEON_WORK_ENTER', 1, {
@@ -46,10 +47,16 @@ module.exports = function TerableDungeoner(mod) {
 	
 	command.add(['terad', 'terabled', 'teraace', 'teraad'], {
 		$default(){
-        	command.message(`Now entering ${whatDNG % 3 == 0 ? "Baracos" : whatDNG % 3 == 1 ? "Akasha" : "Lilith"} Ace Dungeon.`);
-			if(whatDNG % 3 == 0) enterBaracosAceDungeon();
-			if(whatDNG % 3 == 1) enterAkashaAceDungeon();
-			if(whatDNG % 3 == 2) enterLilithAceDungeon();
+				if(disableLilith){
+					command.message(`Now entering ${whatDNG % 2 == 0 ? "Baracos" : "Akasha"} Ace Dungeon.`);
+					if(whatDNG % 2 == 0) enterBaracosAceDungeon();
+					if(whatDNG % 2 == 1) enterAkashaAceDungeon();
+				} else{
+					command.message(`Now entering ${whatDNG % 3 == 0 ? "Baracos" : whatDNG % 3 == 1 ? "Akasha" : "Lilith"} Ace Dungeon.`);
+					if(whatDNG % 3 == 0) enterBaracosAceDungeon();
+					if(whatDNG % 3 == 1) enterAkashaAceDungeon();
+					if(whatDNG % 3 == 2) enterLilithAceDungeon();
+				}
 			whatDNG++;
     	},
 		l(){
